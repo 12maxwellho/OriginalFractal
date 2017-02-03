@@ -4,16 +4,16 @@ int c3 = (int)(Math.random()*256);
 boolean s1 = true;
 boolean s2 = true;
 boolean s3 = true;
-int di = 235;
+int di = 5;
 
 public void setup()
 {
-	size(493,493);
+	size(2000,493);
 }
 public void draw()
 {
 	background(255);
-	fractal(250,250,di);
+	fractal(600,250,di);
 	fill(c1,c2,c3);
 	if(c1>254)
 	{
@@ -77,23 +77,23 @@ public void fractal(int x, int y, int di)
 {
 	stroke(175);
 	ellipse(x,y,di,di);
-	if(di>5)
+	if(di>10)
 	{
-		fractal((int)(x+di/(2*Math.sqrt(2))+di/(4*Math.sqrt(2))),(int)(y+di/(2*Math.sqrt(2))+di/(4*Math.sqrt(2))),di/2);
-		fractal((int)(x-di/(2*Math.sqrt(2))-di/(4*Math.sqrt(2))),(int)(y+di/(2*Math.sqrt(2))+di/(4*Math.sqrt(2))),di/2);
-		fractal((int)(x+di/(2*Math.sqrt(2))+di/(4*Math.sqrt(2))),(int)(y-di/(2*Math.sqrt(2))-di/(4*Math.sqrt(2))),di/2);
-		fractal((int)(x-di/(2*Math.sqrt(2))-di/(4*Math.sqrt(2))),(int)(y-di/(2*Math.sqrt(2))-di/(4*Math.sqrt(2))),di/2);
+		fractal((int)(x+di/(2*Math.sqrt(2))+di/(4*Math.sqrt(2)))+di*(int)Math.cos(di/360),(int)(y+di/(2*Math.sqrt(2))+di/(4*Math.sqrt(2)))+di*(int)Math.sin(di/360),di/2);
+		fractal((int)(x-di/(2*Math.sqrt(2))-di/(4*Math.sqrt(2)))-di*(int)Math.cos(di/360),(int)(y+di/(2*Math.sqrt(2))+di/(4*Math.sqrt(2)))-di*(int)Math.sin(di/360),di/2);
+		fractal((int)(x+di/(2*Math.sqrt(2))+di/(4*Math.sqrt(2)))+di*(int)Math.cos(di/360),(int)(y-di/(2*Math.sqrt(2))-di/(4*Math.sqrt(2)))+di*(int)Math.sin(di/360),di/2);
+		fractal((int)(x-di/(2*Math.sqrt(2))-di/(4*Math.sqrt(2)))-di*(int)Math.cos(di/360),(int)(y-di/(2*Math.sqrt(2))-di/(4*Math.sqrt(2)))-di*(int)Math.sin(di/360),di/2);
 	}
 }
 public void keyPressed()
 {
-	if(keyCode==UP)
+	if(key=='w')
 	{
-		di+=5;
+		di+=10;
 	}
-	else if(keyCode==DOWN && di>0)
+	else if(key=='s' && di>0)
 	{
-		di-=5;
+		di-=10;
 	}
 }
 
