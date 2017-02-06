@@ -13,6 +13,8 @@ boolean s3 = true;
 
 int di = 5;
 
+int turtle = 4;
+
 
 public void setup()
 
@@ -175,7 +177,6 @@ public void keyPressed()
 {
 
  if(key=='w')
-
  {
 
   di+=10;
@@ -189,6 +190,7 @@ public void keyPressed()
   di-=10;
 
  }
+
 
 }
 
